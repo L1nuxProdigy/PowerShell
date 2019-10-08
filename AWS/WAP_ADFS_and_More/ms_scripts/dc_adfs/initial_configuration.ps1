@@ -11,5 +11,14 @@ Rename-Computer DC
 Rename-LocalUser -Name "Administrator" -NewName $domain_admin
 Set-LocalUser -Name $domain_admin -Password $(ConvertTo-SecureString -string $domain_admin_password -AsPlainText -Force)
 
+## Register a task to configure the DC role post startup
+$Trigger= New-ScheduledTaskTrigger -AtStartup
+$Action= New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "$scripts_path\"
+Register-ScheduledTask -TaskName Test `
+                       -Action $action `
+                       -Trigger $trigger `
+                       -User "$env:USERDOMAIN\$env:USERNAME" `
+                       -Password $local_admin_password
+
 ## Restart The Computer
 Restart-Computer
