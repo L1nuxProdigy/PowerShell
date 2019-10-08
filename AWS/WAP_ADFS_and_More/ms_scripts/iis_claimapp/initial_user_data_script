@@ -5,7 +5,7 @@
 $wc = New-Object System.Net.WebClient
 $machine_working_location = "C:\Users\Administrator\Desktop\"
 $url_array = @(
-				("https://github.com/L1nuxProdigy/PowerShell/archive/master.zip","$machine_working_location\zip.zip"), 
+				("https://github.com/L1nuxProdigy/PowerShell.git","$machine_working_location\zip.zip"), 
 				("https://download.mozilla.org/?product=firefox-msi-latest-ssl&os=win64&lang=en-US","$machine_working_location\firefox.msi"),
 				("https://download.microsoft.com/download/7/0/1/70118832-3749-4C75-B860-456FC0712870/WindowsIdentityFoundation-SDK-3.5.msi","$machine_working_location\WinSDK3.5.msi")
 			  )

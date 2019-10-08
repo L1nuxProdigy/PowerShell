@@ -1,5 +1,6 @@
 ## import vars
 . ..\ps_var_file.ps1
+
 ## configures machine IP - In AWS the private ip is first given from a logical component and thus the private ip configured in terraform
 #New-NetIpAddress -InterfaceAlias 'Ethernet' -IpAddress 10.0.1.4 -PrefixLength 24;
 Set-DnsClientServerAddress -Interfacealias 'Ethernet' -ServerAddresses ("10.0.1.4");

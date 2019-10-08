@@ -5,7 +5,7 @@
 $wc = New-Object System.Net.WebClient
 $machine_working_location = "C:\Users\Administrator\Desktop\"
 $url_array = @(
-				("https://github.com/L1nuxProdigy/PowerShell/archive/master.zip","$machine_working_location\zip.zip"), 
+				("https://github.com/L1nuxProdigy/PowerShell.git","$machine_working_location\zip.zip"), 
 				("https://download.mozilla.org/?product=firefox-msi-latest-ssl&os=win64&lang=en-US","$machine_working_location\firefox.msi")
 			  )
 # Downloading the desired content including the repo

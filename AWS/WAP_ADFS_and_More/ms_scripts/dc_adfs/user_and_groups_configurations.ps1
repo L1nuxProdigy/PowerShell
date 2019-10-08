@@ -1,3 +1,6 @@
+## import vars
+. ..\ps_var_file.ps1
+
 ## Creates an AD DS Group
 New-ADGroup -Name "Finance" -SamAccountName "SAM Finance"`
 -GroupCategory Security -GroupScope Global -DisplayName "Display Name Finance"`
@@ -5,7 +8,7 @@ New-ADGroup -Name "Finance" -SamAccountName "SAM Finance"`
 
 ## Creates an AD DS User
 New-ADUser -Name "Robert Hatley" -GivenName "Robert" -Surname "Hatley" -SamAccountName "RobertH"`
--UserPrincipalName "RobertH@Contoso.com" -AccountPassword (ConvertTo-SecureString -string "P@ssword"`
+-UserPrincipalName "RobertH@Contoso.com" -AccountPassword (ConvertTo-SecureString -string $user_password`
 -AsPlainText -Force) -Enabled $True
 
 ## Adds the User to The Group
