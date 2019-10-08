@@ -13,3 +13,11 @@ $P = New-ScheduledTaskPrincipal -UserId "$env:USERDOMAIN\$env:USERNAME" -RunLeve
 $S = New-ScheduledTaskSettingsSet
 $D = New-ScheduledTask -Action $A -Principal $P -Trigger $T -Settings $S
 Register-ScheduledTask "Install DC Role" -InputObject $D
+
+$Trigger= New-ScheduledTaskTrigger -AtStartup
+$User= "$DC_Hostname\$domain_admin" # Specify the account to run the script
+$Action= New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "C:\PS\StartupScript.ps1" # Specify what program to run and with its parameters
+Register-ScheduledTask -TaskName "MonitorGroupMembership" -Trigger $Trigger -User $User -Action $Action -RunLevel Highest –Force # Specify the name of the task
+
+
+Register-ScheduledTask -TaskName "test" -Trigger $Trigger -User $User -Action $Action -RunLevel Highest –Force
