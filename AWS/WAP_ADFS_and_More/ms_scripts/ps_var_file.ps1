@@ -13,3 +13,4 @@ $domain_admin_password = "Dd123456"
 $user_password = "Uu123456"
 
 $scripts_path = "c:\users\administrator\desktop\WAP_ADFS_and_More\ms_scripts\"
+$task_name = "Ephimeral Task"

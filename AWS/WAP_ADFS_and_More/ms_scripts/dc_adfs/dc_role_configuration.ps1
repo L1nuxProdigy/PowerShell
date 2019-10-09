@@ -18,3 +18,5 @@ Install-ADDSForest `
 -LogPath "C:\Windows\NTDS" `
 -NoRebootOnCompletion:$false `
 -Force:$true 2>> C:\users\administrator\desktop\errors.txt
+
+Unregister-ScheduledTask -TaskName $task_name
