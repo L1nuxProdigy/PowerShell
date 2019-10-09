@@ -7,9 +7,9 @@ New-ADGroup -Name "Finance" -SamAccountName "SAM Finance"`
 -Path "CN=Users,DC=Contoso,DC=Com" -Description "Finance Group"
 
 ## Creates an AD DS User
-New-ADUser -Name "Robert Hatley" -GivenName "Robert" -Surname "Hatley" -SamAccountName "RobertH"`
--UserPrincipalName "RobertH@Contoso.com" -AccountPassword (ConvertTo-SecureString -string $user_password`
--AsPlainText -Force) -Enabled $True
+New-ADUser -Name "Robert Hatley" -GivenName "Robert" -Surname "Hatley" -SamAccountName "RobertH" `
+-UserPrincipalName "RobertH@Contoso.com" `
+-AccountPassword (ConvertTo-SecureString -string $user_password -AsPlainText -Force) -Enabled $True
 
 ## Adds the User to The Group
 Add-ADGroupMember -Identity "SAM Finance" -Members RobertH
