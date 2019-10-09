@@ -15,5 +15,11 @@ New-ADUser -Name "Robert Hatley" -GivenName "Robert" -Surname "Hatley" -SamAccou
 Add-ADGroupMember -Identity "SAM Finance" -Members RobertH
 
 ## Create GMSA Account
-Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
-New-ADServiceAccount FsGmsa -DNSHostName adfs1.contoso.com -ServicePrincipalNames http/adfs1.contoso.com
+#Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
+#New-ADServiceAccount FsGmsa -DNSHostName adfs1.contoso.com -ServicePrincipalNames http/adfs1.contoso.com
+
+## change the domain admin name
+Get-Aduser $AWS_starting_admin_name | Rename-ADObject -NewName $domain_admin_name
+
+# remove the schedualed task
+Unregister-ScheduledTask -TaskName $task_name -Confirm:$false

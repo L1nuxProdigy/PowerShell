@@ -17,6 +17,15 @@ Install-ADDSForest `
 -SysvolPath "C:\Windows\SYSVOL" `
 -LogPath "C:\Windows\NTDS" `
 -NoRebootOnCompletion:$false `
--Force:$true 2>> C:\users\administrator\desktop\errors.txt
+-Force:$true
 
-Unregister-ScheduledTask -TaskName $task_name
+# unregister the task that called the script
+Unregister-ScheduledTask -TaskName $task_name -Confirm:$false
+
+## Register a task to configure users post startup
+$Trigger= New-ScheduledTaskTrigger -AtStartup
+$Action= New-ScheduledTaskAction -Execute "PowerShell.exe" `
+                                 -Argument "$scripts_path\dc_adfs\user_and_groups_configurations.ps1" `
+                                 -WorkingDirectory "$scripts_path\dc_adfs"
+Register-ScheduledTask -TaskName $task_name -Action $action -Trigger $trigger `
+                       -RunLevel Highest -User "$env:USERDOMAIN\$AWS_starting_admin_name" -Password $domain_admin_password
