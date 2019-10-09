@@ -17,4 +17,4 @@ Install-ADDSForest `
 -SysvolPath "C:\Windows\SYSVOL" `
 -LogPath "C:\Windows\NTDS" `
 -NoRebootOnCompletion:$false `
--Force:$true
+-Force:$true 2>> C:\users\administrator\desktop\errors.txt
