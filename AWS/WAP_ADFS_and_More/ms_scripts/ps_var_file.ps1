@@ -1,3 +1,5 @@
+$AWS_starting_admin_name = "administrator"
+
 $domain_name = "contoso.com"
 $DomainNetbiosName = "contoso"
 $AD_DS_Safe_Mode_Password = "Rr123456"
