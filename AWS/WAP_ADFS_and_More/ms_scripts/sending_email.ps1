@@ -1,23 +1,21 @@
 ﻿# with powershell
 $From = "XXX@gmail.com"
-$To = "xxx@gmail.com"
+$To = "XXX@gmail.com"
 #$Cc = "YourBoss@YourDomain.com"
 #$Attachment = "C:\temp\Some random file.txt"
 $Subject = "Tests"
 $Body = "body test"
 $SMTPServer = "smtp.gmail.com"
-$SMTPPort = "465"
+$SMTPPort = "587"
 #Send-MailMessage -From $From -to $To -Cc $Cc -Subject $Subject `
 #-Body $Body -SmtpServer $SMTPServer -port $SMTPPort -UseSsl `
 #-Credential (Get-Credential) -Attachments $Attachment
 $cred  = new-object -typename System.Management.Automation.PSCredential `
-                    -argumentlist $From, $(ConvertTo-SecureString -string "XXXXX" -AsPlainText -Force)
+                    -argumentlist $From, $(ConvertTo-SecureString -string "" -AsPlainText -Force)
 
 Send-MailMessage -From $From -to $To -Subject $Subject `
 -Body $Body -SmtpServer $SMTPServer -port $SMTPPort -UseSsl `
 -Credential $cred
-
-Send-MailMessage -From $From -to $To -Subject $Subject -Body $Body -SmtpServer $SMTPServer -port $SMTPPort -UseSsl -Credential (Get-Credential)
 
 #2nd method
 $email = "XXX@gmail.com" 
@@ -39,15 +37,3 @@ Hi there
 "  
 $SMTP.Credentials = New-Object System.Net.NetworkCredential("$email", "$pass"); 
 $smtp.Send($msg)
-
-
-
-## another try with 587 gmail, kinda same
-
-$From = "XXX@gmail.com"
-$To = "XXX@gmail.com"
-$Subject = "Here's the Email Subject"
-$Body = "This is what I want to say"
-$SMTPServer = "smtp.gmail.com"
-$SMTPPort = "587"
-Send-MailMessage -From $From -to $To -Subject $Subject -Body $Body -SmtpServer $SMTPServer -port $SMTPPort -UseSsl -Credential (Get-Credential)
