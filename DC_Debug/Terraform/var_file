@@ -1,4 +1,0 @@
-aws_access_key = ""
-aws_secret_key = ""
-
-dc = "../ms_scripts/dc/initial_user_data_script"
