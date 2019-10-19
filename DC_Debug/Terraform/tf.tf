@@ -21,7 +21,7 @@ variable "ms_2019_base" {default = "ami-0091012d8fbe033f5"}
 variable "win_2016_snapshot_id" {default = "snap-a7ab05de"}
 
 ### Machines Configurations Scripts ###
-variable "dc_adfs" {}
+variable "dc" {}
 
 ##################################################################################
 # PROVIDERS
@@ -173,7 +173,7 @@ resource "aws_instance" "DC_ADFS_2016" {
 	CreatedBy = "Terraform"
 	}
 	
-	user_data = "${file(var.dc_adfs)}"
+	user_data = "${file(var.dc)}"
 }
 
 ##################################################################################
