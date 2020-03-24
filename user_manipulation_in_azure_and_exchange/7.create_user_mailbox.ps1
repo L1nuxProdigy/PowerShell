@@ -5,4 +5,5 @@ New-MailboxFolder -Parent "$FirstNameLowerCase@$DomainName.com" -Name $FolderNam
 Get-InboxRule -Mailbox "$FirstNameLowerCase@$DomainName.com"
 
 ## Creates a move rule
-New-InboxRule -Name "Automated_Rule" -From "" -MoveToFolder $FolderName
+New-InboxRule -Name "" -From "" -MoveToFolder $FolderName
+New-InboxRule -Name "" -From "" -MoveToFolder $FolderName
