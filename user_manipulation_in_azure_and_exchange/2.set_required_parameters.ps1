@@ -10,5 +10,6 @@ $UsageLocation = ""
 
 $TemplateUser = ""
 
-
+$AssignedFullAccessUser = ""
+$SpecificGroup = ""
 $FolderName = ""
