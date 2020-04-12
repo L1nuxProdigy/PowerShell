@@ -1,3 +1,6 @@
+## for a system to run scripts requires:
+# Set-ExecutionPolicy Unrestricted
+
 ## Connect to Azure
 # Requires Install-Module AzureAD 
 Connect-AzureAD
@@ -8,4 +11,5 @@ $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri ht
 Import-PSSession $Session -DisableNameChecking
 
 ## Connect to MSOL Service
+# Requires Install-Module -Name MSOnline
 Connect-MsolService

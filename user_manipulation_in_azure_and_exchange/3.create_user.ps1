@@ -13,4 +13,4 @@ If ($check_if_user_exist.objectid -gt 1)
 
 
 
-New-AzureADUser -DisplayName $DisplayName  -PasswordProfile $PasswordProfile -UserPrincipalName "$FirstNameLowerCase@$DomainName.com" -AccountEnabled $true -MailNickName $FirstNameLowerCase -GivenName $FirstName -Surname $LastName -Department $Department -JobTitle $JobTitle -UsageLocation $UsageLocation
+New-AzureADUser -DisplayName $DisplayName -PasswordProfile $PasswordProfile -UserPrincipalName "$FirstNameLowerCase@$DomainName.com" -AccountEnabled $true -MailNickName $FirstNameLowerCase -GivenName $FirstName -Surname $LastName -Department $Department -JobTitle $JobTitle -UsageLocation $UsageLocation
